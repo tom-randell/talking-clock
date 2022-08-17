@@ -1,5 +1,7 @@
 # TALKING-CLOCK
 
+The easiest way to get started is by [opening this in GitPod](https://tomrandell-talkingclock-kxcfot22qfd.ws-eu61.gitpod.io/)
+
 To get started clone the repo and run `npm install`.
 you can run tests with `npm run test` or run the API with `npm run start:api`.
 
