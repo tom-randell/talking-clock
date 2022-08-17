@@ -17,16 +17,18 @@
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
-    "run": "tsc && node ./dist/index.js",
+    "run": "cross-env tsc && node ./dist/index.js",
     "debug": "tsc --sourcemap",
     "start": "node index.js",
+    "run:api": "node ./dist/api.js",
+    "start:api": "cross-env npm run debug && npm run run:api",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
+    "prepublishOnly": "cross-env npm test && npm run lint",
     "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "version": "cross-env npm run format && git add -A src",
+    "postversion": "cross-env git push && git push --tags"
   },
   "keywords": [
     "time",
@@ -36,15 +38,19 @@
   "author": "Tom Randell",
   "license": "MIT",
   "devDependencies": {
-    "@types/figlet": "^1.2.0",
+    "@types/commander": "^2.12.2",
     "@types/jest": "^24.0.19",
-    "@types/node": "^12.12.8",
+    "@types/node": "^18.7.6",
+    "cross-env": "^7.0.3",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.6.4"
+    "typescript": "^4.7.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "commander": "^9.4.0",
+    "fastify": "^4.4.0"
+  }
 }

@@ -1,5 +1,7 @@
-import { makeTimeStringHumanFriendly } from '../conversion';
-const testCases = [
+import { makeTimeStringHumanFriendly, SanitizedTimeFormat } from '../conversion';
+interface SanitizedInputTestCase { input: SanitizedTimeFormat, expected: string }
+
+const testCases: SanitizedInputTestCase[] = [
   { input: "1:00", expected: "One o'clock" },
   { input: "2:00", expected: "Two o'clock" },
   { input: "13:00", expected: "One o'clock" },
