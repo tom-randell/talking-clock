@@ -1,5 +1,11 @@
 # TALKING-CLOCK
 
+The easiest way to get started is to:
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://tomrandell-talkingclock-kxcfot22qfd.ws-eu61.gitpod.io/)
+
+_:warning: Keep in mind that the time input when no arguments are present is relative to the machine being run - so running in GitPod may show a different timezone response for simply running npm run start_
+
 To get started clone the repo and run `npm install`.
 you can run tests with `npm run test` or run the API with `npm run start:api`.
 
