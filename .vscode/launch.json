@@ -25,6 +25,7 @@
             "name": "Jest file",
             "type": "node",
             "request": "launch",
+            "preLaunchTask": "npm: debug",
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/jest",
             "args": [
                 "${fileBasenameNoExtension}",
