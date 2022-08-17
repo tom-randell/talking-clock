@@ -17,7 +17,7 @@ export function formatTimeString(timeString: string): SanitizedTimeFormat {
 /** Takes a Date object and converts it into `SanitizedTimeFormat` string format.
  *  @see SanitizedTimeFormat*/
 export function convertDateToTimeString(date: Date) {
-    return formatTimeString(date.toLocaleTimeString());
+    return formatTimeString(date.toLocaleTimeString('en-GB'));
 }
 
 /** Sanitizes input whether it is a string or a Date in to 
