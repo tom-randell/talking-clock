@@ -1,7 +1,7 @@
 # TALKING-CLOCK
 
 To get started clone the repo and run `npm install`.
-you can run tests with `npm run tests` or run the API with `npm run start:api`.
+you can run tests with `npm run test` or run the API with `npm run start:api`.
 
 You can debug the CLI by selecting the 'Debug CLI' launch option in the RUN AND DEBUG section of VSCode.
 You can debug the tests by selecting the 'Jest file' launch option in the RUN AND DEBUG section of VSCode.
