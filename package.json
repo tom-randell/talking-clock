@@ -19,7 +19,7 @@
     "build": "tsc",
     "run": "cross-env tsc && node ./dist/index.js",
     "debug": "tsc --sourcemap",
-    "start": "node index.js",
+    "start": "cross-env npm run debug && node index.js",
     "run:api": "node ./dist/api.js",
     "start:api": "cross-env npm run debug && npm run run:api",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",

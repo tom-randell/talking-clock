@@ -26,8 +26,8 @@ server.route({
     handler: function (request, reply) {
         const timeRequest = (request.query as any)?.numericTime ?? new Date();
         const sanitizedInput = sanitizeInput(timeRequest);
-        const result = makeTimeStringHumanFriendly(timeRequest);
-        reply.send({ result, originalInput: timeRequest, sanitizedInput: sanitizedInput });
+        const result = makeTimeStringHumanFriendly(sanitizedInput);
+        reply.send({ result, originalInput: (request.query as any)?.numericTime ?? undefined, sanitizedInput: sanitizedInput });
     }
 })
 

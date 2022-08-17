@@ -7,7 +7,8 @@ export type SanitizedTimeFormat = `${singleDigitHours | doubleDigitHours}:${allo
 /** Takes a time string and converts it into `SanitizedTimeFormat` string format.
  *  @see SanitizedTimeFormat*/
 export function formatTimeString(timeString: string): SanitizedTimeFormat {
-    const trimmedTime = timeString.substring(0, 5); // remove seconds etc.
+    const colonIndex = timeString.indexOf(":");
+    const trimmedTime = timeString.substring(0, colonIndex + 3); // remove seconds etc.
     if (trimmedTime[0] === "0") // strip leading 0
         return (trimmedTime.substring(1, trimmedTime.length) as SanitizedTimeFormat);
     return (trimmedTime as SanitizedTimeFormat);
