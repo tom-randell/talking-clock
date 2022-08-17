@@ -23,14 +23,14 @@ npm run start 10:55 # Five to eleven
 
 ## API
 
-``` shell
+```shell
 http://[::1]:8080?numericTime=1:20
 ```
 
 ```json
 {
-    "result": "Twenty past one",
-    "originalInput": "1:20",
-    "sanitizedInput": "1:20"
+  "result": "Twenty past one",
+  "originalInput": "1:20",
+  "sanitizedInput": "1:20"
 }
 ```
