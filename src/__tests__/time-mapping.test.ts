@@ -17,6 +17,8 @@ const testCases: SanitizedInputTestCase[] = [
   { input: '20:45', expected: 'Quarter to nine' },
   { input: '23:10', expected: 'Ten past eleven' },
   { input: '23:50', expected: 'Ten to midnight' },
+  { input: '0:10', expected: 'Ten past midnight' },
+  { input: '00:15', expected: 'Quarter past midnight' },
 ];
 describe('Test time outputs', () => {
   testCases.forEach((testCase) => {
