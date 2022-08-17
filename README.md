@@ -6,6 +6,8 @@ The easiest way to get started is to:
 
 _:warning: Keep in mind that the time input when no arguments are present is relative to the machine being run - so running in GitPod may show a different timezone response for simply running npm run start_
 
+You can also run the API by building and running the `Dockerfile` and then see the API section below.
+
 To get started clone the repo and run `npm install`.
 you can run tests with `npm run test` or run the API with `npm run start:api`.
 
@@ -24,7 +26,7 @@ npm run start 10:55 # Five to eleven
 ## API
 
 ```shell
-http://[::1]:8080?numericTime=1:20
+http://0.0.0.0:8080?numericTime=1:20 # or simply http://0.0.0.0:8080
 ```
 
 ```json
