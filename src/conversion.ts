@@ -85,7 +85,7 @@ export enum RelationToHour {
 
 export function numberToHumanFriendlyText(input: SanitizedTimeFormat) {
   const [hours, minutes] = input.split(':').map((x) => +x);
-  const ones = [
+  const oneToNineteen = [
     'one',
     'two',
     'three',
@@ -110,7 +110,7 @@ export function numberToHumanFriendlyText(input: SanitizedTimeFormat) {
   const getHoursString = (relationToHour?: RelationToHour) =>
     hours === 24 || (relationToHour === RelationToHour.AfterHalfPast && hours === 23)
       ? 'midnight'
-      : ones[(hours - (relationToHour === RelationToHour.AfterHalfPast ? 0 : 1)) % 12];
+      : oneToNineteen[(hours - (relationToHour === RelationToHour.AfterHalfPast ? 0 : 1)) % 12];
 
   if (minutes === 0) return `${getHoursString()} o'clock`;
 
@@ -118,8 +118,8 @@ export function numberToHumanFriendlyText(input: SanitizedTimeFormat) {
   let minutesString;
   if (minutes === 30) minutesString = 'half';
   else if (relativeMinutes >= 20 && relativeMinutes < 30)
-    minutesString = `twenty${relativeMinutes > 20 ? ` ${ones[(relativeMinutes - 1) % 20]}` : ''}`;
-  else minutesString = ones[relativeMinutes - 1];
+    minutesString = `twenty${relativeMinutes > 20 ? ` ${oneToNineteen[(relativeMinutes - 1) % 20]}` : ''}`;
+  else minutesString = oneToNineteen[relativeMinutes - 1];
 
   const pointInTime: RelationToHour = minutes <= 30 ? RelationToHour.BeforeHalfPast : RelationToHour.AfterHalfPast;
 
