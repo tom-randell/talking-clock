@@ -50,7 +50,7 @@ type allowedMinutes =
       | 59
     );
 /** Type representation of the allowed sanitized time format (HH:MM or H:MM). */
-export type SanitizedTimeFormat = `${singleDigitHours | doubleDigitHours}:${allowedMinutes}`;
+export type SanitizedTimeFormat = `${0 | '00' | singleDigitHours | doubleDigitHours}:${allowedMinutes}`;
 
 /** Takes a time string and converts it into `SanitizedTimeFormat` string format.
  *  @see SanitizedTimeFormat*/
@@ -108,7 +108,9 @@ export function numberToHumanFriendlyText(input: SanitizedTimeFormat) {
   ];
 
   const getHoursString = (relationToHour?: RelationToHour) =>
-    hours === 24 || (relationToHour === RelationToHour.AfterHalfPast && hours === 23)
+    hours === 24 ||
+    (relationToHour === RelationToHour.AfterHalfPast && hours === 23) ||
+    (relationToHour === RelationToHour.BeforeHalfPast && hours === 0)
       ? 'midnight'
       : oneToNineteen[(hours - (relationToHour === RelationToHour.AfterHalfPast ? 0 : 1)) % 12];
 
