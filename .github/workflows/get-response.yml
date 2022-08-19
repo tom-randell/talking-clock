@@ -1,0 +1,41 @@
+name: Get response
+
+on:
+  workflow_dispatch:
+    inputs:
+      numericTime:
+        required: false
+        description: 'Provide a time in HH:MM format to get the response for a specific time'
+env:
+  working-directory: ./
+
+jobs:
+  give-response:
+    runs-on: ubuntu-latest
+    name: Give Response
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: npm install
+        working-directory: ${{env.working-directory}}
+        run: npm install
+
+      - name: Build
+        working-directory: ${{env.working-directory}}
+        run: npm run build
+
+      - name: Get response
+        working-directory: ${{env.working-directory}}
+        run: npm run start ${{ github.event.inputs.numericTime }}
