@@ -28,8 +28,7 @@
     "prepublishOnly": "cross-env npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "cross-env npm run format && git add -A src",
-    "postversion": "cross-env git push && git push --tags",
-    "deploy:gh": "gh-pages -d dist"
+    "postversion": "cross-env git push && git push --tags"
   },
   "keywords": [
     "time",
@@ -43,7 +42,6 @@
     "@types/jest": "^24.0.19",
     "@types/node": "^18.7.6",
     "cross-env": "^7.0.3",
-    "gh-pages": "^4.0.0",
     "jest": "^24.9.0",
     "prettier": "^2.7.1",
     "ts-jest": "^24.1.0",
