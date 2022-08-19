@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Talking Clock</title>
+</head>
+
+<body>
+    <h1>Talking clock</h1>
+    <div id="page-grid">
+        <p>The time is:</p>
+        <h2 id="target"></h2>
+    </div>
+
+    <!--Scripts-->
+    <script>let exports = {};</script>
+    <script src="/dist/conversion.js"></script>
+
+    <script>
+        function updateText() {
+            const input = sanitizeInput(new Date());
+            const result = makeTimeStringHumanFriendly(input);
+
+            const htmlTarget = document.getElementById('target');
+            htmlTarget.innerText = result;
+        }
+
+        window.onload = () => {
+            setInterval(() => {
+                updateText();
+            }, 1000);
+        };
+    </script>
+</body>
+
+</html>
