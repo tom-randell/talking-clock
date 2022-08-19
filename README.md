@@ -8,6 +8,15 @@ _:warning: Keep in mind that the time input when no arguments are present is rel
 
 You can also run the API by building and running the `Dockerfile` and then see the API section below.
 
+## Github Action
+
+I have now also setup a manual github action where you can test out the response (if you have access to the Actions section):
+
+![image](https://user-images.githubusercontent.com/17002544/185634187-13a4a967-09aa-4d42-a81f-e99f1bb9e092.png)
+
+![image](https://user-images.githubusercontent.com/17002544/185634034-fba6c74c-54f6-4759-bae8-aebae3c50ec0.png)
+
+
 To get started clone the repo and run `npm install`.
 you can run tests with `npm run test` or run the API with `npm run start:api`.
 
