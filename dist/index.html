@@ -15,7 +15,8 @@
             text-align: center;
         }
 
-        h1 {
+        h1,
+        p {
             color: #fff;
         }
 
@@ -25,6 +26,7 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
+            flex-direction: column;
         }
 
         #centre-card {
@@ -33,15 +35,29 @@
             background: rgb(195, 84, 56);
             background: linear-gradient(55deg, rgba(195, 84, 56, 1) 0%, rgba(228, 146, 82, 1) 100%);
             border: 1px solid rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        @media screen and (min-width: 1080px) {
+            #page-grid {
+                flex-direction: row;
+            }
         }
     </style>
 </head>
 
 <body>
     <div id="page-grid">
-        <h1>Talking clock</h1>
-        <div id="centre-card">
+        <div>
+            <h1>Talking clock</h1>
             <p>The time is:</p>
+        </div>
+
+        <div id="centre-card">
+
             <h2 id="target"></h2>
         </div>
     </div>
