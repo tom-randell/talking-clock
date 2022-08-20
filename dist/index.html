@@ -4,13 +4,62 @@
 <head>
     <meta charset="utf-8">
     <title>Talking Clock</title>
+
+    <link href="http://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #303030;
+            text-align: center;
+        }
+
+        h1,
+        p {
+            color: #fff;
+        }
+
+        #page-grid {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-direction: column;
+        }
+
+        #centre-card {
+            height: 121px;
+            width: 325px;
+            background: rgb(195, 84, 56);
+            background: linear-gradient(55deg, rgba(195, 84, 56, 1) 0%, rgba(228, 146, 82, 1) 100%);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        @media screen and (min-width: 1080px) {
+            #page-grid {
+                flex-direction: row;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Talking clock</h1>
     <div id="page-grid">
-        <p>The time is:</p>
-        <h2 id="target"></h2>
+        <div>
+            <h1>Talking clock</h1>
+            <p>The time is:</p>
+        </div>
+
+        <div id="centre-card">
+
+            <h2 id="target"></h2>
+        </div>
     </div>
 
     <!--Scripts-->
@@ -35,7 +84,8 @@
             updateHtml(result);
             if (canSpeak) {
                 const utterance = new SpeechSynthesisUtterance();
-                utterance.text = result;
+                utterance.text = `The time is ${result}`;
+                utterance.lang = 'en-GB';
                 window.speechSynthesis.speak(utterance);
             }
         }
