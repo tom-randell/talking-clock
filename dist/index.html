@@ -85,6 +85,7 @@
             if (canSpeak) {
                 const utterance = new SpeechSynthesisUtterance();
                 utterance.text = `The time is ${result}`;
+                utterance.lang = 'en-GB';
                 window.speechSynthesis.speak(utterance);
             }
         }
