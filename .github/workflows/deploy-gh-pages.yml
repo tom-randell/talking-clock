@@ -4,18 +4,31 @@ on:
   push:
     branches:
       - main
+<<<<<<< HEAD
   pull_request:
     branches: [main]
 
 permissions:
   contents: write
+=======
+>>>>>>> main
 env:
   working-directory: ./
 
 jobs:
+<<<<<<< HEAD
   deploy:
     name: deploy to github pages
     runs-on: ubuntu-latest
+=======
+  build-and-test:
+    name: build-and-test-${{matrix.os}}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node-version: [18.x]
+>>>>>>> main
 
     steps:
       - uses: actions/checkout@v2
@@ -41,6 +54,11 @@ jobs:
         run: npm run build
 
       - name: Deploy
+<<<<<<< HEAD
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
+=======
+        working-directory: ${{env.working-directory}}
+        run: npm run deploy:gh
+>>>>>>> main
