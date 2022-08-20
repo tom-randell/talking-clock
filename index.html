@@ -30,15 +30,20 @@
 
         const canSpeak = 'speechSynthesis' in window;
 
+        function getTimeAndDisplayitToUser() {
+            const result = getHumanFriendlyTime();
+            updateHtml(result);
+            if (canSpeak) {
+                const utterance = new SpeechSynthesisUtterance();
+                utterance.text = result;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+        getTimeAndDisplayitToUser();
+
         window.onload = () => {
             setInterval(() => {
-                const result = getHumanFriendlyTime();
-                updateHtml(result);
-                if (canSpeak) {
-                    const utterance = new SpeechSynthesisUtterance();
-                    utterance.text = result;
-                    window.speechSynthesis.speak(utterance);
-                }
+                getTimeAndDisplayitToUser();
             }, 60000);
         };
     </script>
